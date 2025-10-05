@@ -1,0 +1,47 @@
+# Neo4j Configuration
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "password"  # Change this to your Neo4j password
+
+# Redis Configuration (Optional - for production vector search)
+redis:
+  enabled: false  # Set to true if you want to use Redis
+  url: "redis://localhost:6379"
+  
+# Embeddings Configuration
+embeddings:
+  backend: "hf"  # 'hf' for HuggingFace or 'openai' for OpenAI
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  # For OpenAI:
+  # backend: "openai"
+  # model_name: "text-embedding-3-small"
+  # api_key: "your-api-key-here"
+
+# LLM Configuration
+llm:
+  model_name: "gemini-2.0-flash"
+  temperature: 0.3
+  max_tokens: 1024
+
+# Step Configuration
+steps:
+  data_ingestion: true
+  chunking: true
+  entity_extraction: true
+  relationship_extraction: true
+  graph_construction: true
+  graph_indexing: true
+  qa_system: true  # Unified Steps 7-10
+
+# Vector Store Configuration
+vector_store:
+  save_path: "output/vector_stores"
+  index_type: "flat"  # 'flat', 'ivf', or 'hnsw'
+
+# Graph Embedding Configuration
+graph_embeddings:
+  node_batch_size: 100
+  edge_batch_size: 100
+  max_nodes: 10000
+  max_edges: 10000
