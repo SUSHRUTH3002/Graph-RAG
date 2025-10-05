@@ -9,3 +9,6 @@ wheels/
 # Virtual environments
 .venv
 activate/
+output/
+.env
+data/
